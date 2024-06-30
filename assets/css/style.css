@@ -1,0 +1,18 @@
+section.hero-banner{
+    background-image:url(../images/building.jpg);
+    height:100vh;
+    background-size: cover;
+}
+.container{
+         text-align: center;
+         padding-top: 50px;
+}
+button .btn btn-primary{
+    color:#fff;
+}
+.card .btn btn-primary{
+    width:100%;
+}
+h1,p{
+    color:whitesmoke;
+}
