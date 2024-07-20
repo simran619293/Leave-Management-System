@@ -1,9 +1,16 @@
 
-<?php include '../include/session.php'; ?>
-<?php 
-session_start();
+<?php
 include '../include/db-connection.php';
+include '../include/session.php';
 
+// Check if user is logged in
+checkLogin();
+
+// Check if user is admin
+if (!isAdmin()) {
+    header('Location: ../login.php');
+    exit();
+}
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['add_staff']) && !empty($_POST['email'])) {
@@ -222,7 +229,7 @@ include '../templates/admin-header.php';
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card" background-color="#FAEBD7">
                     <div class="card-body">
                         <!-- Alert Messages -->
                         <?php if (isset($_SESSION['message']) || isset($_SESSION['error'])): ?>

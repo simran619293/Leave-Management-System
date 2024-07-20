@@ -6,11 +6,10 @@ include '../include/session.php';
 checkLogin();
 
 // Check if user is admin
-if (!isStaff()) {
+if (!isHOD()) {
     header('Location: ../login.php');
     exit();
 }
-
 
 include '../templates/admin-header.php';
  

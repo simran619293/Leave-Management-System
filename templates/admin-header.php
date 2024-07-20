@@ -1,5 +1,4 @@
-
-<?php include 'header.php'; 
+<?php include 'header.php'
  ?>
  <header id="header" class=" header fixed-top d-flex align-items-center">
 <div class="d-flex align-items-center justify-content-between">
@@ -19,12 +18,12 @@
   <ul class="d-flex align-items-center">
     <li class="nav-item dropdown pe-3">
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="assets/images/profile-img.jpg" alt="Profile" class="rounded-circle">
-        <span class="d-none d-md-block dropdown-toggle ps-2">Simran Vishwakarma</span>
+        <img src="assets/images/1633449899821.jpg" alt="Profile" class="rounded-circle">
+        <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo(isset($_SESSION['user_name']) ? $_SESSION['user_name']:''); ?></span>
       </a><!-- End Profile Iamge Icon -->
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          <h6>Kevin Anderson</h6>
+          <h6>Simran Vishwakarma</h6>
           <span>Web Designer</span>
         </li>
         <li>
@@ -60,7 +59,7 @@
         <li>
           <a class="dropdown-item d-flex align-items-center" href="../logout.php">
             <i class="bi bi-box-arrow-right"></i>
-            <span>Sign Out</span>
+            <span>Log Out</span>
           </a>
         </li>
       </ul><!-- End Profile Dropdown Items -->
@@ -69,11 +68,4 @@
 </nav><!-- End Icons Navigation -->
 <?php include 'sidebar.php'; ?>
 </header><!-- End Header -->
-<?php //include 'footer.php'; ?>
-
-
-
-
-
-
-
+<?php include 'footer.php'; ?>

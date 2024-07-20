@@ -3,7 +3,7 @@
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
-  <?php if (isadmin()) : ?>
+  <?php if (isAdmin()) : ?>
   <li class="nav-item">
     <a class="nav-link " href="../admin/dashboard.php">
       <i class="bi bi-grid"></i>
@@ -41,7 +41,7 @@
     </a>
   </li><!-- End Dashboard Nav -->
   
-  <?php elseif (isStaff() || isHOD()) : ?>
+  <?php elseif (isStaff()) : ?>
     <li class="nav-item">
       <a class="nav-link " href="../staff/dashboard.php">
         <i class="bi bi-grid"></i>
@@ -54,13 +54,19 @@
         <span>Leaves</span>
       </a>
     </li> 
-  <?php elseif (isHOD()) : ?>
+  <?php elseif (isHOD()) : ?> 
     <li class="nav-item">
-      <a class="nav-link " href="../staff/list_leaves.php">
-        <i class="bi bi-list-task"></i>
-        <span>Leave List</span>
+      <a class="nav-link " href="../hod/dashboard.php">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link " href="../hod/leaves.php">
+        <i class="bi bi-grid"></i>
+        <span>Leaves</span>
+      </a>
+    </li> 
   <?php endif ?>
 </ul>
 

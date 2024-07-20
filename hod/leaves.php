@@ -2,6 +2,16 @@
 include '../include/db-connection.php';
 include '../include/session.php';
 
+// Check if user is logged in
+checkLogin();
+
+// Check if user is admin
+if (!isHOD()) {
+    header('Location: ../login.php');
+    exit();
+}
+
+
 
 
 $userId = $_SESSION['user_id'];
@@ -28,11 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $sql = "SELECT l.*, lt.id , lt.type FROM leaves as l INNER JOIN leave_types as lt ON l.leave_type_id=lt.id WHERE l.user_id = $userId";
 $result = $conn->query($sql);
-while($row = $result->fetch_assoc())
-{
-    $leaves[] = $row;
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc())
+  {
+      $leaves[] = $row;
+  }
 }
- 
+ else{
+  $leaves = [];
+ }
 $sql2 = "SELECT * FROM leave_types";
 $result2 = $conn->query($sql2);
 while($rows = $result2->fetch_assoc())

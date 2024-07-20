@@ -1,17 +1,19 @@
-<?php include 'header.php'
+<?php
+
+include '../include/db-connection.php';
+include '../include/session.php';
+// Check if user is logged in
+checkLogin();
+
+// Check if user is admin
+if (!isAdmin()) {
+    header('Location: ../login.php');
+    exit();
+}
+include 'header.php';
  ?>
 <head>
-    <style>
-        header{
-            background-color:#008B8B;
-        }
-        ul,li{
-            background-color:#20B2AA;
-        }
-        img .rounded-circle{
-            size:20px;
-        }
-    </style>
+
 </head>
 <body>
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -82,7 +84,7 @@
         </nav><!-- End Icons Navigation -->
     </header>
 </body>
-<?php include 'sidebar.php' ?>
+<?php include 'sidebar.php'?>
 
 </header><!-- End Header -->
 <?php include 'footer.php'?>
